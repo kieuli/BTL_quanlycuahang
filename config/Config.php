@@ -1,0 +1,26 @@
+<?php
+
+	$con = mysqli_connect("localhost","root","","btl") or die("Can not connect to MySQL");
+	mysqli_set_charset($con,"UTF8");
+
+ ?>
+<?php 
+
+# server name
+$sName = "localhost";
+# user name
+$uName = "root";
+# password
+$pass = "";
+
+# database name
+$db_name = "btl";
+
+#creating database connection
+try {
+    $conn = new PDO("mysql:host=$sName;dbname=$db_name", 
+                    $uName, $pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}catch(PDOException $e){
+  echo "Connection failed : ". $e->getMessage();
+}
